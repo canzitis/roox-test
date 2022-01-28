@@ -1,0 +1,25 @@
+.container {
+    padding: 35px 26px;
+    width: 150px;
+    height: 155vh;
+    background: #BDBDBD;
+
+    h3 {
+        font-size: 12px;
+        line-height: 14px;
+        color: #000000;
+        margin-bottom: 10px;
+    }
+
+    button {
+        display: block;
+        font-size: 12px;
+        line-height: 14px;
+        padding: 5px 15px;
+        color: #FFFFFF;
+        margin-bottom: 10px;
+        background: #4B51EF;
+        border-radius: 5px;
+        border: none;
+    }
+}
