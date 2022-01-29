@@ -1,4 +1,5 @@
 import s from './Sorting.module.scss'
+import React from 'react'
 
 const Sorting = () => {
     return <div className={s.container}>

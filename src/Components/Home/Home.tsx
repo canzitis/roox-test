@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {initializeProfile, InitialStateType} from "../../redux/app-reducer";
 import Users from "../Users/Users";
+import Preloader from "../common/Preloader/Preloader";
 
 
 const Home = () => {
@@ -12,8 +13,12 @@ const Home = () => {
         dispatch(initializeProfile())
     })
 
+    if (!initialize) {
+        return <Preloader initialize={initialize}/>
+    }
+
     return <>
-        {initialize ? <h2>Загрузка</h2> : <Users/>}
+        <Users/>
     </>
 }
 

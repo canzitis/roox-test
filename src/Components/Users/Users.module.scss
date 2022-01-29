@@ -1,9 +1,24 @@
 .container {
     display: flex;
+    padding-bottom: 10px;
+    text-align: left;
 }
 
 .itemWrapper {
     margin-left: 30px;
+    margin-bottom: 50px;
+}
+
+.itemUserWrapper {
+    position: relative;
+
+    & > :last-child {
+        position: absolute;
+        right: 0;
+        margin-top: 10px;
+        font-size: 12px;
+        line-height: 14px;
+    }
 }
 
 .itemUser {
@@ -13,7 +28,8 @@
     background: #F3F3F3;
     border-radius: 8px;
     padding: 9px 10px;
-    margin-top: 20px;
+    margin-top: 15px;
+
 
     div {
         font-size: 11px;
@@ -22,6 +38,11 @@
         display: flex;
         align-items: center;
         margin: 10px;
+
+        h2 {
+            font-size: 14px;
+            line-height: 16px;
+        }
 
         span {
             display: block;

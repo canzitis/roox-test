@@ -1,8 +1,9 @@
 .container {
     padding: 35px 26px;
     width: 150px;
-    height: 155vh;
+    min-height: 100vh;
     background: #BDBDBD;
+    text-align: left;
 
     h3 {
         font-size: 12px;
