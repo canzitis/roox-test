@@ -11,10 +11,8 @@ const Users = () => {
     const dispatch = useDispatch();
     const [usersEnd, setUsersEnd] = useState('')
     const [fs, setFs] = useState(false)
-    const [sortSity, setSortSity] = useState([])
 
     useEffect(() => {
-
         dispatch(initializeProfile())
 
         setTimeout(() => {
@@ -29,29 +27,17 @@ const Users = () => {
         } else {
             setUsersEnd("лей");
         }
-    }, [userData.length])
+    }, [dispatch, userData.length])
 
 
-    const Sort = () => {
-        console.log(userData);
-        userData.map((item: any) => {
-            // @ts-ignore
-            return setSortSity(item.address.city)
-        });
 
-        console.log(sortSity)
-
-        sortSity.sort((a: any, b: any) => {
-            return a - b
-        });
-    }
 
     if (!initialize) {
         return <Preloader initialize={fs}/>
     }
 
     return <div className={s.container}>
-        <Sorting Sort={Sort}/>
+        <Sorting/>
         <div className={s.itemWrapper}>
             <h2>Список пользователей</h2>
             <div className={s.itemUserWrapper}>

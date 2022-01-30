@@ -28,6 +28,7 @@ let initialState: InitialStateType = {
 
 const SET_USERS = "SET_USERS"
 const SET_INITIALIZE = "SET_INITIALIZE"
+const SORT_DATA = "SORT_DATA"
 
 const appReducer = (state = initialState, action: any): InitialStateType => {
     switch (action.type) {
@@ -41,6 +42,11 @@ const appReducer = (state = initialState, action: any): InitialStateType => {
             return {
                 ...state,
                 initialize: action.initialize
+            }
+        case SORT_DATA:
+            return {
+                ...state,
+                users:[...action.sortData]
             }
         default:
             return state;
@@ -59,6 +65,14 @@ const setInitialize = (initialize: boolean) => {
     return {
         type: SET_INITIALIZE,
         initialize
+    }
+}
+
+export const sortData = (sortData:any) => {
+    debugger;
+    return {
+        type: SORT_DATA,
+        sortData
     }
 }
 
