@@ -9,7 +9,7 @@ const Preloader: React.FC<PreloaderProps> = ({initialize}) => {
     return (
         <Container initialize={initialize}>
         <span>
-        {/*    <h3>Загрузка...</h3>*/}
+            <h3>Загрузка...</h3>
         </span>
         </Container>
     )

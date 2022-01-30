@@ -1,10 +1,14 @@
 import s from './Sorting.module.scss'
 import React from 'react'
 
-const Sorting = () => {
+interface SortingProps {
+    Sort: any
+}
+
+const Sorting: React.FC<SortingProps> = ({Sort}) => {
     return <div className={s.container}>
         <h3>Сортировка</h3>
-        <button>по городу</button>
+        <button onClick={() => Sort()}>по городу</button>
         <button>по компании</button>
     </div>
 }

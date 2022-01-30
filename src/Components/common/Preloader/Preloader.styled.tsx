@@ -6,24 +6,20 @@ interface PreloaderProps {
 }
 
 export const Container = styled.div<PreloaderProps>`
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: ${({initialize}) => initialize ? 0 : '100vh'};
+    height: ${({initialize}) => initialize ? '0' : '100vh'};
     overflow: hidden;
     z-index: 20;
-    transition: height 0.8s ease-in-out .400s;
+    transition: 0.5s;
 
 
     span {
         display: block;
-        position: absolute;
         top: 0;
         left: 0;
         width: 100vw;
         height: 100vh;
-        background-color: #111;
+        background: #111;
 
 
         @keyframes load {
@@ -35,10 +31,12 @@ export const Container = styled.div<PreloaderProps>`
         }
 
         h3 {
+            height: 50em;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            position: absolute;
-            top: 50%;
-            transform: translate(-50%, -50%);
             font-family: Helvetica, sans-serif, Arial;
             animation: load 1.5s infinite 0s ease-in-out;
             animation-direction: alternate;
