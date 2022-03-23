@@ -6,7 +6,6 @@ const SET_PROFILE = "SET_PROFILE"
 const SET_INITIALIZE = "SET_INITIALIZE"
 const SORT_DATA = "SORT_DATA"
 
-
 export type UserDataType = {
     id: number,
     name: string,
