@@ -1,23 +1,19 @@
 import {useDispatch, useSelector} from "react-redux";
-import {initializeProfile, InitialStateType} from "../../redux/app-reducer";
+import {addedUsers, InitialStateType} from "../../redux/app-reducer";
 import s from './Users.module.scss'
 import Sorting from "../common/Sorting/Sorting";
 import React, {useEffect, useState} from "react";
 import Preloader from "../common/Preloader/Preloader";
+import {Link} from "react-router-dom";
 
 const Users = () => {
     const userData = useSelector((state: InitialStateType) => state.users);
     const initialize = useSelector((state: InitialStateType) => state.initialize);
     const dispatch = useDispatch();
     const [usersEnd, setUsersEnd] = useState('')
-    const [fs, setFs] = useState(false)
 
     useEffect(() => {
-        dispatch(initializeProfile())
-
-        setTimeout(() => {
-            setFs(true)
-        }, 2600)
+        dispatch(addedUsers())
 
         /*Сделаю небольшую проверку склонения окончания до 10 пользователей.*/
         if (userData.length <= 1) {
@@ -29,12 +25,10 @@ const Users = () => {
         }
     }, [dispatch, userData.length])
 
-
-
-
     if (!initialize) {
-        return <Preloader initialize={fs}/>
+        return <Preloader initialize={initialize}/>
     }
+
 
     return <div className={s.container}>
         <Sorting/>
@@ -46,7 +40,7 @@ const Users = () => {
                         <div>ФИО: <span>{item.name}</span></div>
                         <div>город: <span>{item.address.city}</span></div>
                         <div>компания: <span>{item.company.name}</span></div>
-                        <a href="">Подробнее</a>
+                        <Link to={`/userProfile/${item.id}`}>Подробнее</Link>
                     </div>
                 })}
                 <span>Найдено {userData.length} пользовате{usersEnd}</span>

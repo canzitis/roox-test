@@ -1,19 +1,18 @@
 import React from 'react';
 import s from './App.module.css';
-import {Route} from 'react-router';
-import {BrowserRouter, Routes} from 'react-router-dom';
-import UserProfile from "./Components/UserProfile/UserProfile";
+import {Navigate, Routes, Route} from 'react-router-dom';
 import Users from "./Components/Users/Users";
+import UsersProfileContainer from "./Components/UserProfile/UsersProfileContainer";
+import UserProfile from "./Components/UserProfile/UserProfile";
 
 function App() {
     return (
         <div className={s.App}>
-            <BrowserRouter>
-                <Routes>
-                    <Route path='/users' element={<Users/>}/>
-                    <Route path='/userProfile' element={<UserProfile/>}/>
-                </Routes>
-            </BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Navigate to="/users" replace={true}/>}/>
+                <Route path='/users' element={<Users/>}/>
+                <Route path='/userProfile/:id' element={<UsersProfileContainer/>}/>
+            </Routes>
         </div>
     );
 }

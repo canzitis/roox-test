@@ -1,21 +1,36 @@
 import s from './Sorting.module.scss'
 import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from "react-redux";
-import {InitialStateType, sortData} from "../../../redux/app-reducer";
+import {InitialStateType, sortData, UserDataType} from "../../../redux/app-reducer";
 
+type UsertType = {
+    users: {
+        id: number,
+        name: string,
+        email: string,
+        address: {
+            street: string,
+            city: string,
+            zipcode: string
+        },
+        phone: string,
+        company: {
+            name: string,
+        },
+        website: string
+    }[]
+}
 
 const Sorting = () => {
-    debugger;
     const [newData, setNewData] = useState([]);
-    const userData = useSelector((state: InitialStateType) => state.users);
+    const userData = useSelector((state: any) => state.users);
     const dispatch = useDispatch();
 
-    useEffect(()=>{
+    useEffect(() => {
         setNewData(userData.concat())
-    },[userData])
+    }, [userData])
 
     const SortCityData = () => {
-        //const newData = userData.concat();
         setNewData(userData.concat())
         newData.sort((a: any, b: any) => {
             return a.address.city > b.address.city ? 1 : -1;
