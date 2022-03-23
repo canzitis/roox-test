@@ -39,7 +39,6 @@ export type InitialStateType = {
     users: UserDataType | [],
     profile: ProfileType | null,
     initialize: boolean,
-
 }
 let initialState: InitialStateType = {
     users: [],
@@ -106,9 +105,9 @@ const setInitialize = (initialize: boolean): setInitializeType => {
 
 type sortDataType = {
     type: typeof SORT_DATA
-    sortData: any
+    sortData: UserDataType
 }
-export const sortData = (sortData: any): sortDataType => {
+export const sortData = (sortData: UserDataType): sortDataType => {
     return {
         type: SORT_DATA,
         sortData

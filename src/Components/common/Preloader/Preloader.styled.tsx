@@ -1,4 +1,3 @@
-/*В проелодере буду использовать styled-components*/
 import styled from "styled-components";
 
 interface PreloaderProps {

@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import s from './UserProfile.module.scss'
-import Sorting from "../common/Sorting/Sorting";
 import {useForm} from "react-hook-form";
+import SortingContainer from "../common/Sorting/SortingContainer";
 
 interface UserProfileType {
     profile: {
@@ -63,8 +63,7 @@ const UserProfile: React.FC<UserProfileType> = ({profile}) => {
         })
     };
     return <div className={s.container}>
-
-        <Sorting/>
+        <SortingContainer/>
         <div className={s.wrapperInfoProfile}>
             <div className={s.headerInfo}>
                 <h4>Профиль пользователя</h4>
